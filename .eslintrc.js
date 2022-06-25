@@ -31,11 +31,12 @@ module.exports = {
                 allow: [],
             },
         ],
-        'operator-linebreak': [2, 'before', { overrides: { '?': 'after' } }],
+        'operator-linebreak': [2, 'after', { overrides: { '?': 'after' } }],
         'import/prefer-default-export': 'off',
         'import/no-extraneous-dependencies': [
             'error',
             { devDependencies: true },
         ],
+        'implicit-arrow-linebreak': 'off',
     },
 };

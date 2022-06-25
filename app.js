@@ -1,19 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const setApp = require('./server');
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-// const db = require('./app/models');
-
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to application.' });
-});
-// require('./app/routes/turorial.routes')(app);
 // set port, listen for requests
 const PORT = 80;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+setApp
+    .then(server =>
+        server.listen(PORT, () =>
+            console.info(`Server is running on port ${PORT}.`),
+        ),
+    )
+    .catch(error => {
+        console.error(`ERRO: ${error}`);
+        process.exit(1);
+    });
+// server.listen(PORT, () => console.info(`Server is running on port ${PORT}.`));
