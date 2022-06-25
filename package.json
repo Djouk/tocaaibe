@@ -1,14 +1,15 @@
 {
-  "name": "tocaaibe",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Andrey Andreata",
-  "license": "ISC",
-  "devDependencies": {
-    "prettier": "^2.7.1"
-  }
+    "name": "tocaaibe",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "prettier": "npx prettier --write --ignore-unknown .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Andrey Andreata",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "^2.7.1"
+    }
 }
