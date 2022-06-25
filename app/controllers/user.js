@@ -1,7 +1,6 @@
 const models = require('../models');
 
 const createUser = async (req, res) => {
-    console.log(req);
     try {
         const user = await models.User.create(req.body);
         return res.status(201).json({
@@ -12,6 +11,35 @@ const createUser = async (req, res) => {
     }
 };
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await models.User.findAll({});
+        return res.status(200).json({ users });
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+
+const getUserById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log(`ID: ${id}`);
+        const user = await models.User.findOne({
+            where: { id },
+        });
+        if (user) {
+            return res.status(200).json({ user });
+        }
+        return res
+            .status(404)
+            .send('User with the specified ID does not exists');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+};
+
 module.exports = {
     createUser,
+    getAllUsers,
+    getUserById,
 };
