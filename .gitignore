@@ -167,6 +167,6 @@ dist
 *.code-workspace
 
 # User
-.vscode
+.vscode/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
