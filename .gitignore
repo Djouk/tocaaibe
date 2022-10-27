@@ -166,7 +166,4 @@ dist
 # Ignore code-workspaces
 *.code-workspace
 
-# User
-.vscode/
-
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
