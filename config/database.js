@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
 
-const config = require('./config.json')[env]; // eslint-disable-line import/no-dynamic-require
+const config = require('./config.js')[env]; // eslint-disable-line import/no-dynamic-require
 
 let sequelize;
 if (config.use_env_variable) {
