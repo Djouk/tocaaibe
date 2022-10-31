@@ -14,6 +14,7 @@ const configureExpress = () => {
     server.use(bodyParser.urlencoded({ extended: true }));
 
     server.use('/api', routes);
+    server.use("/uploads", express.static('uploads'));
 
     server.get('/', (req, res) => {
         res.json({ message: 'Welcome to application.' });
