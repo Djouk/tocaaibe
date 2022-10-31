@@ -1,8 +1,15 @@
 const models = require('../models');
 
+const BUSINESS_FILE_FIELDS = [ 'profilePic', 'coverPic' ];
+
 const createBusiness = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
+        const profilePic = req.files.profilePic[0];
+        const coverPic = req.files.coverPic[0];
+        req.body.profilePic = profilePic.destination + profilePic.filename;
+        req.body.coverPic = coverPic.destination + coverPic.filename;
+
         const business = await models.Business.create(req.body);
         return res.status(201).json({
             business,
@@ -70,6 +77,7 @@ const deleteBusiness = async (req, res) => {
 };
 
 module.exports = {
+    BUSINESS_FILE_FIELDS,
     createBusiness,
     getAllBusinesses,
     getBusinessById,

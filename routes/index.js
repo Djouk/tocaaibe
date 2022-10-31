@@ -15,7 +15,16 @@ router.get('/users/:id', userController.getUserById);
 router.put('/users/:id', userController.updateUser);
 router.delete('/users/:id', userController.deleteUser);
 
-router.post('/businesses', upload.single('profilePic'), businessController.createBusiness);
+// get Business fields for files
+let businessFileFields = [];
+for (i = 0; i < businessController.BUSINESS_FILE_FIELDS.length; i++) {
+  businessFileFields.push({
+    name: businessController.BUSINESS_FILE_FIELDS[i],
+    maxCount: 1,
+  });
+}
+
+router.post('/businesses', upload.fields(businessFileFields), businessController.createBusiness);
 router.get('/businesses', businessController.getAllBusinesses);
 router.get('/businesses/:id', businessController.getBusinessById);
 router.put('/businesses/:id', businessController.updateBusiness);
