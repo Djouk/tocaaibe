@@ -1,7 +1,11 @@
 const models = require('../models');
 
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
 const createBusiness = async (req, res) => {
     try {
+        console.log(req.body);
         const business = await models.Business.create(req.body);
         return res.status(201).json({
             business,
